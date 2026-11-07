@@ -1,0 +1,32 @@
+
+stages:
+  validate:
+    cmd: python src/validate_data.py
+    deps:
+      - src/validate_data.py
+      - data/sources.csv
+      - data/raw
+    outs:
+      - reports/validation.txt
+
+  ingest:
+    cmd: python src/ingest.py
+    deps:
+      - src/ingest.py
+      - src/validate_data.py
+      - data/sources.csv
+      - data/raw
+      - configs/config_A.yaml
+    outs:
+      - indexes/chroma_support_it
+
+  evaluate_retrieval:
+    cmd: python eval/eval_retrieval.py
+    deps:
+      - eval/eval_retrieval.py
+      - eval/golden_set.jsonl
+      - src/retriever.py
+      - indexes/chroma_support_it
+    metrics:
+      - eval/results/retrieval_metrics.json:
+          cache: false
