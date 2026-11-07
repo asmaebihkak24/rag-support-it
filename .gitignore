@@ -1,0 +1,50 @@
+# Environnement virtuel Python
+venv/
+.venv/
+ENV/
+
+# Cache Python et fichiers temporaires
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sart/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Secrets et variables d'environnement
+.env
+.env.local
+.env.production
+
+# IDEs et éditeurs (VS Code / PyCharm)
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Index vectoriels locaux (Chroma, etc.)
+indexes/
+*.sqlite3
+chroma.sqlite3
+
+# Suivi local des expériences MLflow et DVC
+mlruns/
+.mlflow/
+.dvc/cache/
+.dvc/tmp/

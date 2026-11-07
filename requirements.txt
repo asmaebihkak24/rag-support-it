@@ -1,0 +1,24 @@
+# --- Framework RAG & LLM ---
+langchain>=0.1.0
+langchain-community>=0.0.20
+chromadb>=0.4.22
+sentence-transformers>=2.3.1
+groq>=0.9.0
+
+# --- API & Backend ---
+fastapi>=0.109.0
+uvicorn>=0.27.0
+pydantic>=2.6.0
+requests>=2.31.0
+pypdf>=4.0.0
+
+# --- MLOps, Suivi & Versionnement ---
+mlflow>=2.10.0
+dvc>=3.48.0
+python-dotenv>=1.0.0
+
+# --- Qualité, Tests & Linter ---
+pytest>=8.0.0
+pytest-cov>=4.1.0
+ruff>=0.2.1
+trafilatura>=2.0.0
