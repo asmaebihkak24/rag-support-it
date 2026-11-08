@@ -28,7 +28,7 @@ jobs:
 
       - name: Run unit tests
         run: |
-          python -m pytest -v \
+          python -m pytest -v tests/ \
             --cov=src.generator \
             --cov=src.rag_pipeline \
             --cov=src.retriever \
