@@ -5,6 +5,7 @@ from pathlib import Path
 
 RAW_DIR = Path("data/raw")
 SOURCES_FILE = Path("data/sources.csv")
+REPORT_FILE = Path("reports/validation.txt")
 
 REQUIRED_COLUMNS = [
     "doc_id",
@@ -17,6 +18,7 @@ REQUIRED_COLUMNS = [
     "download_date",
     "sha256",
 ]
+
 
 def calculate_sha256(file_path):
     sha256 = hashlib.sha256()
@@ -74,7 +76,9 @@ def validate_data():
             continue
 
         if not file_path.exists():
-            errors.append(f"{doc_id} : fichier introuvable ({filename}).")
+            errors.append(
+                f"{doc_id} : fichier introuvable ({filename})."
+            )
             continue
 
         if file_path.stat().st_size == 0:
@@ -82,22 +86,37 @@ def validate_data():
             continue
 
         actual_hash = calculate_sha256(file_path)
-        expected_hash = row["sha256"].strip()
+        expected_hash = row["sha256"].strip().lower()
 
         if actual_hash != expected_hash:
             errors.append(f"{doc_id} : SHA256 incorrect.")
 
-    if errors:
-        print("\nÉCHEC DE VALIDATION")
-        for error in errors:
-            print(f"- {error}")
-        raise SystemExit(1)
+    # Génération du rapport
+    REPORT_FILE.parent.mkdir(parents=True, exist_ok=True)
 
-    print("VALIDATION RÉUSSIE")
-    print(f"Documents validés : {len(rows)}")
-    print("Identifiants uniques : OK")
-    print("Fichiers présents et non vides : OK")
-    print("Empreintes SHA256 : OK")
+    if errors:
+        report_lines = [
+            "ÉCHEC DE VALIDATION",
+            *[f"- {error}" for error in errors],
+        ]
+    else:
+        report_lines = [
+            "VALIDATION RÉUSSIE",
+            f"Documents validés : {len(rows)}",
+            "Identifiants uniques : OK",
+            "Fichiers présents et non vides : OK",
+            "Empreintes SHA256 : OK",
+        ]
+
+    REPORT_FILE.write_text(
+        "\n".join(report_lines) + "\n",
+        encoding="utf-8"
+    )
+
+    print("\n".join(report_lines))
+
+    if errors:
+        raise SystemExit(1)
 
 
 if __name__ == "__main__":

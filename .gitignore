@@ -48,3 +48,35 @@ mlruns/
 .mlflow/
 .dvc/cache/
 .dvc/tmp/
+# Rapports et fichiers temporaires
+.coverage
+.coverage.*
+.pytest_cache/
+htmlcov/
+
+# Base de données et suivi MLflow local
+mlflow.db
+mlflow.db-shm
+mlflow.db-wal
+
+# Sauvegardes du corpus
+data/raw_backup/
+data/sources_backup.csv
+
+# Anciennes versions et sauvegardes d'évaluation
+eval/*.bak
+eval/golden_set_before_*.jsonl
+eval/golden_set_frozen_*.jsonl
+eval/*_before_mlflow.py
+
+# Scripts exploratoires
+eval/test_*.py
+src/test_extraction*.py
+
+# Résultats intermédiaires d'expérimentation
+eval/results/comparison_*.json
+eval/results/missing_chunks_inspection.txt
+eval/results/retrieval_analysis*
+eval/results/retrieval_metrics_before_*.json
+eval/results/retrieval_metrics_old_*.json
+eval/results/retrieval_metrics_hybrid*.json

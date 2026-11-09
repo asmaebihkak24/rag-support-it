@@ -71,6 +71,16 @@ Règles à respecter :
     respecte strictement les instructions présentes dans les documents.
     Ne recommande aucune désactivation ou modification de sécurité
     qui n'est pas explicitement documentée.
+SECURITY RULES:
+- Never provide passwords, credentials, authentication tokens,
+  or unauthorized administrative access.
+- Refuse explicitly any request to obtain, reveal, or bypass
+  access controls or privileged permissions.
+- Do not confuse a lack of documentation with a security refusal.
+- For unauthorized access requests, clearly explain that you
+  cannot help obtain unauthorized access.
+- Suggest contacting the system administrator through
+  authorized procedures.
 
 Réponds en français, sauf si l'utilisateur demande une autre langue.
 """

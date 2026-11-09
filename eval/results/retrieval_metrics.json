@@ -1,10 +1,10 @@
 [
     {
         "k": 3,
-        "hit_rate": 0.9545454545454546,
-        "mean_recall": 0.8257575757575757,
+        "hit_rate": 0.9523809523809523,
+        "mean_recall": 0.865079365079365,
         "by_category": {
-            "nominal": 0.8257575757575757
+            "nominal": 0.865079365079365
         },
         "details": [
             {
@@ -58,7 +58,7 @@
                     "DOC006"
                 ],
                 "distances": [
-                    0.3368,
+                    0.3874,
                     0.4096,
                     0.5581
                 ],
@@ -88,8 +88,7 @@
                 "question": "Comment installer OpenVPN ?",
                 "category": "nominal",
                 "expected_doc_ids": [
-                    "DOC007",
-                    "DOC009"
+                    "DOC007"
                 ],
                 "retrieved_doc_ids": [
                     "DOC009",
@@ -117,7 +116,7 @@
                 "distances": [
                     0.6488,
                     0.7281,
-                    0.7447
+                    0.7521
                 ],
                 "hit": 1,
                 "recall": 1.0
@@ -142,20 +141,19 @@
                 "recall": 1.0
             },
             {
-                "question": "Comment configurer un client et un serveur OpenVPN 2.x ?",
+                "question": "Comment demarrer un serveur et un client OpenVPN a partir de fichiers de configuration existants et verifier la connectivite VPN ?",
                 "category": "nominal",
                 "expected_doc_ids": [
+                    "DOC008"
+                ],
+                "retrieved_doc_ids": [
                     "DOC008",
                     "DOC009"
                 ],
-                "retrieved_doc_ids": [
-                    "DOC009",
-                    "DOC008"
-                ],
                 "distances": [
-                    0.3641,
-                    0.3733,
-                    0.4372
+                    0.3056,
+                    0.3173,
+                    0.4614
                 ],
                 "hit": 1,
                 "recall": 1.0
@@ -201,7 +199,6 @@
                 "question": "Comment afficher la configuration complète de tous les adaptateurs réseau sous Windows ?",
                 "category": "nominal",
                 "expected_doc_ids": [
-                    "DOC001",
                     "DOC002"
                 ],
                 "retrieved_doc_ids": [
@@ -209,19 +206,18 @@
                     "DOC006"
                 ],
                 "distances": [
-                    0.6947,
+                    0.6803,
                     0.7499,
                     0.7973
                 ],
                 "hit": 1,
-                "recall": 0.5
+                "recall": 1.0
             },
             {
                 "question": "Où peut-on télécharger le code source et les installateurs Windows d'OpenVPN ?",
                 "category": "nominal",
                 "expected_doc_ids": [
-                    "DOC007",
-                    "DOC009"
+                    "DOC007"
                 ],
                 "retrieved_doc_ids": [
                     "DOC007",
@@ -262,9 +258,9 @@
                     "DOC005"
                 ],
                 "distances": [
-                    1.0327,
-                    1.0738,
-                    1.1701
+                    0.945,
+                    0.9494,
+                    1.0309
                 ],
                 "hit": 1,
                 "recall": 1.0
@@ -324,25 +320,6 @@
                 "recall": 1.0
             },
             {
-                "question": "Comment configurer l'exécution automatique d'OpenVPN au démarrage du système ?",
-                "category": "nominal",
-                "expected_doc_ids": [
-                    "DOC007",
-                    "DOC009"
-                ],
-                "retrieved_doc_ids": [
-                    "DOC009",
-                    "DOC008"
-                ],
-                "distances": [
-                    0.2652,
-                    0.4373,
-                    0.506
-                ],
-                "hit": 1,
-                "recall": 0.5
-            },
-            {
                 "question": "Qu'est-ce qu'un VPN de type SSL complet selon la documentation OpenVPN ?",
                 "category": "nominal",
                 "expected_doc_ids": [
@@ -370,8 +347,8 @@
                     "DOC006"
                 ],
                 "distances": [
-                    0.5487,
                     0.5577,
+                    0.614,
                     0.6604
                 ],
                 "hit": 1,
@@ -389,8 +366,8 @@
                 ],
                 "distances": [
                     0.6598,
-                    0.7757,
-                    0.799
+                    0.799,
+                    0.8278
                 ],
                 "hit": 1,
                 "recall": 0.5
@@ -417,10 +394,10 @@
     },
     {
         "k": 5,
-        "hit_rate": 0.9545454545454546,
-        "mean_recall": 0.8409090909090909,
+        "hit_rate": 0.9523809523809523,
+        "mean_recall": 0.9285714285714286,
         "by_category": {
-            "nominal": 0.8409090909090909
+            "nominal": 0.9285714285714286
         },
         "details": [
             {
@@ -455,17 +432,17 @@
                 ],
                 "retrieved_doc_ids": [
                     "DOC002",
-                    "DOC005"
+                    "DOC001"
                 ],
                 "distances": [
                     0.7344,
                     0.7778,
                     0.8331,
-                    0.902,
-                    0.9182
+                    0.8552,
+                    0.902
                 ],
                 "hit": 1,
-                "recall": 0.5
+                "recall": 1.0
             },
             {
                 "question": "Quelle commande permet de renouveler une adresse IP DHCP sous Windows ?",
@@ -480,7 +457,7 @@
                     "DOC006"
                 ],
                 "distances": [
-                    0.3368,
+                    0.3874,
                     0.4096,
                     0.5581,
                     0.638,
@@ -514,8 +491,7 @@
                 "question": "Comment installer OpenVPN ?",
                 "category": "nominal",
                 "expected_doc_ids": [
-                    "DOC007",
-                    "DOC009"
+                    "DOC007"
                 ],
                 "retrieved_doc_ids": [
                     "DOC009",
@@ -545,9 +521,9 @@
                 "distances": [
                     0.6488,
                     0.7281,
-                    0.7447,
                     0.7521,
-                    0.7631
+                    0.7631,
+                    0.7718
                 ],
                 "hit": 1,
                 "recall": 1.0
@@ -574,22 +550,21 @@
                 "recall": 1.0
             },
             {
-                "question": "Comment configurer un client et un serveur OpenVPN 2.x ?",
+                "question": "Comment demarrer un serveur et un client OpenVPN a partir de fichiers de configuration existants et verifier la connectivite VPN ?",
                 "category": "nominal",
                 "expected_doc_ids": [
+                    "DOC008"
+                ],
+                "retrieved_doc_ids": [
                     "DOC008",
                     "DOC009"
                 ],
-                "retrieved_doc_ids": [
-                    "DOC009",
-                    "DOC008"
-                ],
                 "distances": [
-                    0.3641,
-                    0.3733,
-                    0.4372,
-                    0.4921,
-                    0.5444
+                    0.3056,
+                    0.3173,
+                    0.4614,
+                    0.4727,
+                    0.4983
                 ],
                 "hit": 1,
                 "recall": 1.0
@@ -624,23 +599,22 @@
                 ],
                 "retrieved_doc_ids": [
                     "DOC003",
-                    "DOC002"
+                    "DOC001"
                 ],
                 "distances": [
                     0.6002,
                     0.6049,
                     0.6194,
                     0.621,
-                    0.6238
+                    0.6291
                 ],
                 "hit": 1,
-                "recall": 0.5
+                "recall": 1.0
             },
             {
                 "question": "Comment afficher la configuration complète de tous les adaptateurs réseau sous Windows ?",
                 "category": "nominal",
                 "expected_doc_ids": [
-                    "DOC001",
                     "DOC002"
                 ],
                 "retrieved_doc_ids": [
@@ -649,21 +623,20 @@
                     "DOC004"
                 ],
                 "distances": [
-                    0.6947,
+                    0.6803,
                     0.7499,
                     0.7973,
                     0.8407,
                     0.9641
                 ],
                 "hit": 1,
-                "recall": 0.5
+                "recall": 1.0
             },
             {
                 "question": "Où peut-on télécharger le code source et les installateurs Windows d'OpenVPN ?",
                 "category": "nominal",
                 "expected_doc_ids": [
-                    "DOC007",
-                    "DOC009"
+                    "DOC007"
                 ],
                 "retrieved_doc_ids": [
                     "DOC007",
@@ -674,7 +647,7 @@
                     0.8515,
                     0.8781,
                     0.8956,
-                    0.9119
+                    0.9169
                 ],
                 "hit": 1,
                 "recall": 1.0
@@ -705,15 +678,14 @@
                     "DOC005"
                 ],
                 "retrieved_doc_ids": [
-                    "DOC005",
-                    "DOC003"
+                    "DOC005"
                 ],
                 "distances": [
-                    1.0327,
-                    1.0738,
-                    1.1701,
-                    1.1718,
-                    1.1845
+                    0.945,
+                    0.9494,
+                    1.0309,
+                    1.036,
+                    1.0881
                 ],
                 "hit": 1,
                 "recall": 1.0
@@ -780,27 +752,6 @@
                 "recall": 1.0
             },
             {
-                "question": "Comment configurer l'exécution automatique d'OpenVPN au démarrage du système ?",
-                "category": "nominal",
-                "expected_doc_ids": [
-                    "DOC007",
-                    "DOC009"
-                ],
-                "retrieved_doc_ids": [
-                    "DOC009",
-                    "DOC008"
-                ],
-                "distances": [
-                    0.2652,
-                    0.4373,
-                    0.506,
-                    0.5078,
-                    0.532
-                ],
-                "hit": 1,
-                "recall": 0.5
-            },
-            {
                 "question": "Qu'est-ce qu'un VPN de type SSL complet selon la documentation OpenVPN ?",
                 "category": "nominal",
                 "expected_doc_ids": [
@@ -832,8 +783,8 @@
                     "DOC008"
                 ],
                 "distances": [
-                    0.5487,
                     0.5577,
+                    0.614,
                     0.6604,
                     0.6861,
                     0.7171
@@ -854,9 +805,9 @@
                 ],
                 "distances": [
                     0.6598,
-                    0.7757,
                     0.799,
                     0.8278,
+                    0.8506,
                     0.864
                 ],
                 "hit": 1,

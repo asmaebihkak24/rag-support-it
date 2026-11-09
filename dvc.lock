@@ -1,0 +1,74 @@
+schema: '2.0'
+stages:
+  validate:
+    cmd: python src/validate_data.py
+    deps:
+    - path: data/raw
+      hash: md5
+      md5: dc884cd73f3e2c211a345b00d425f40f.dir
+      size: 60556
+      nfiles: 9
+    - path: data/sources.csv
+      hash: md5
+      md5: 6c8f4cc4a4480f55a21fd24d81682947
+      size: 2789
+    - path: src/validate_data.py
+      hash: md5
+      md5: 46db1e35e947265b16edff0ade4b0e90
+      size: 3081
+    outs:
+    - path: reports/validation.txt
+      hash: md5
+      md5: b0f5b3810616ed84e8d0ac0b95e4c87a
+      size: 134
+  ingest:
+    cmd: python src/ingest.py
+    deps:
+    - path: data/raw
+      hash: md5
+      md5: dc884cd73f3e2c211a345b00d425f40f.dir
+      size: 60556
+      nfiles: 9
+    - path: data/sources.csv
+      hash: md5
+      md5: 6c8f4cc4a4480f55a21fd24d81682947
+      size: 2789
+    - path: src/ingest.py
+      hash: md5
+      md5: 1b4019ca0b01d879ffc704c66e764752
+      size: 5569
+    - path: src/validate_data.py
+      hash: md5
+      md5: 46db1e35e947265b16edff0ade4b0e90
+      size: 3081
+    outs:
+    - path: indexes/chroma_support_it
+      hash: md5
+      md5: 9342ccb7554ec9015943bb3e08bf6642.dir
+      size: 2441380
+      nfiles: 5
+  evaluate_retrieval:
+    cmd: python eval/eval_retrieval.py
+    deps:
+    - path: eval/eval_retrieval.py
+      hash: md5
+      md5: 563f23ae2ad8f1e0298ae92db7079698
+      size: 5229
+    - path: eval/golden_set.jsonl
+      hash: md5
+      md5: 0715f2c782c4c80f37e6163a060f2fe4
+      size: 4235
+    - path: indexes/chroma_support_it
+      hash: md5
+      md5: 9342ccb7554ec9015943bb3e08bf6642.dir
+      size: 2441380
+      nfiles: 5
+    - path: src/retriever.py
+      hash: md5
+      md5: 558cfa6ac9ed37dd36761645c993d4fe
+      size: 10594
+    outs:
+    - path: eval/results/retrieval_metrics.json
+      hash: md5
+      md5: 8471d3191ec1457b8a2d85408a364838
+      size: 26627

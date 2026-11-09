@@ -16,7 +16,6 @@ stages:
       - src/validate_data.py
       - data/sources.csv
       - data/raw
-      - configs/config_A.yaml
     outs:
       - indexes/chroma_support_it
 

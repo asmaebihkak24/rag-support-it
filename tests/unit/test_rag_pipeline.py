@@ -216,3 +216,26 @@ def test_run_rag_loads_default_generator(monkeypatch):
     result = run_rag("Question DNS")
 
     assert result["answer"] == "Réponse simulée"
+
+def test_run_rag_with_irrelevant_retrieved_document():
+    doc = create_document(
+        doc_id="DOC_OPENVPN",
+        chunk_id="DOC_OPENVPN_1",
+        content="OpenVPN permet de créer un tunnel VPN sécurisé."
+    )
+
+    generator_called = False
+
+    def fake_generator(question, context):
+        nonlocal generator_called
+        generator_called = True
+        return "Réponse simulée"
+
+    result = run_rag(
+        "Comment installer Photoshop ?",
+        retriever=lambda question, k: [(doc, 0.03)],
+        generator=fake_generator
+    )
+
+    assert generator_called is True
+    assert result["sources"][0]["doc_id"] == "DOC_OPENVPN"
