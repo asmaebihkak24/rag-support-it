@@ -313,3 +313,130 @@ def test_hybrid_search_rejects_document_without_chunk_id(
         retriever.search_documents_hybrid(
             "Question DNS"
         )
+
+# ============================================================
+# TESTS DU DIAGNOSTIC BM25 BIND9
+# ============================================================
+
+def test_diagnostic_bm25_bind9_finds_doc005(monkeypatch, capsys):
+    doc = create_document(
+        chunk_id="DOC005_1",
+        doc_id="DOC005",
+        content="Configuration DNS avec BIND9."
+    )
+
+    fake_bm25 = FakeBM25(results=[doc])
+
+    monkeypatch.setattr(
+        retriever,
+        "initialize_resources",
+        lambda: None
+    )
+
+    monkeypatch.setattr(
+        retriever,
+        "bm25_retriever",
+        fake_bm25
+    )
+
+    retriever.diagnostic_bm25_bind9()
+
+    output = capsys.readouterr().out
+
+    assert "DOC005 retrouvé dans le Top 10." in output
+    assert "DOC005" in output
+    assert "Configuration DNS avec BIND9." in output
+
+
+def test_diagnostic_bm25_bind9_does_not_find_doc005(
+    monkeypatch,
+    capsys
+):
+    doc = create_document(
+        chunk_id="DOC001_1",
+        doc_id="DOC001"
+    )
+
+    fake_bm25 = FakeBM25(results=[doc])
+
+    monkeypatch.setattr(
+        retriever,
+        "initialize_resources",
+        lambda: None
+    )
+
+    monkeypatch.setattr(
+        retriever,
+        "bm25_retriever",
+        fake_bm25
+    )
+
+    retriever.diagnostic_bm25_bind9()
+
+    output = capsys.readouterr().out
+
+    assert "DOC005 absent du Top 10." in output
+
+
+# ============================================================
+# TEST DU PROGRAMME PRINCIPAL
+# ============================================================
+
+def test_main_executes_all_searches(monkeypatch, capsys):
+
+    doc = create_document(
+        chunk_id="DOC002_1",
+        doc_id="DOC002",
+        content="Commande ipconfig."
+    )
+
+    vector_calls = []
+    hybrid_calls = []
+
+    def fake_search_documents(question, k=5):
+        vector_calls.append((question, k))
+        return [(doc, 0.25)]
+
+    def fake_search_documents_hybrid(question, k=5):
+        hybrid_calls.append((question, k))
+        return [(doc, 0.016)]
+
+    monkeypatch.setattr(
+        retriever,
+        "search_documents",
+        fake_search_documents
+    )
+
+    monkeypatch.setattr(
+        retriever,
+        "search_documents_hybrid",
+        fake_search_documents_hybrid
+    )
+
+    diagnostic_calls = []
+
+    monkeypatch.setattr(
+        retriever,
+        "diagnostic_bm25_bind9",
+        lambda: diagnostic_calls.append(True)
+    )
+
+    retriever.main()
+
+    output = capsys.readouterr().out
+
+    assert len(vector_calls) == 4
+    assert len(hybrid_calls) == 4
+
+    assert all(k == retriever.TOP_K for _, k in vector_calls)
+    assert all(k == retriever.TOP_K for _, k in hybrid_calls)
+
+    assert vector_calls[0][0] == (
+        "Comment vider le cache DNS sous Windows ?"
+    )
+
+    assert len(diagnostic_calls) == 1
+
+    assert "--- RECHERCHE VECTORIELLE ---" in output
+    assert "--- RECHERCHE HYBRIDE ---" in output
+    assert "Score RRF" in output

@@ -80,3 +80,4 @@ eval/results/retrieval_analysis*
 eval/results/retrieval_metrics_before_*.json
 eval/results/retrieval_metrics_old_*.json
 eval/results/retrieval_metrics_hybrid*.json
+.streamlit/secrets.toml

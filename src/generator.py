@@ -4,7 +4,6 @@ import os
 from dotenv import load_dotenv
 from groq import Groq
 
-
 # ============================================================
 # CONFIGURATION
 # ============================================================
@@ -71,6 +70,14 @@ Règles à respecter :
     respecte strictement les instructions présentes dans les documents.
     Ne recommande aucune désactivation ou modification de sécurité
     qui n'est pas explicitement documentée.
+19. Distingue formellement ce qui est explicitement détaillé dans
+    la documentation de ce qui ne l'est pas. Si une étape, un fichier
+    de configuration ou une procédure n'est que mentionné ou
+    partiellement décrit dans le contexte, indique clairement que les
+    détails techniques ne figurent pas dans la documentation disponible.
+    Ne présente jamais de déductions ou de suppositions comme des faits.
+20. N'invente aucune étape d'installation, de syntaxe de configuration
+    ou de commande qui n'est pas explicitement attestée dans le contexte.
 SECURITY RULES:
 - Never provide passwords, credentials, authentication tokens,
   or unauthorized administrative access.
