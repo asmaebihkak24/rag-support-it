@@ -56,6 +56,13 @@ ABSTENTION_PATTERNS = [
         r"je\s+ne\s+peux\s+donc\s+pas\s+vous\s+fournir",
         re.IGNORECASE,
     ),
+    re.compile(
+    r"(?:documents?|documentation)\s+"
+    r"(?:fournis?|disponibles?)\s+"
+    r"ne\s+contiennent?\s+"
+    r"aucune\s+information(?:\s+d[eé]taill[eé]e)?",
+    re.IGNORECASE,
+    ),
 ]
 
 
