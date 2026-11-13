@@ -3,9 +3,12 @@ name: RAG Support IT - CI
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
+      - feature/streamlit-interface
   pull_request:
-    branches: [main]
+    branches:
+      - main
 
 jobs:
   tests:
