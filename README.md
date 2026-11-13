@@ -274,6 +274,89 @@ python -m src.rag_pipeline
 - Ajouter un mécanisme de monitoring continu de la qualité.
 - Déployer l'assistant avec une interface utilisateur.
 - Configurer un stockage distant pour DVC afin de faciliter la reproductibilité.
+  ## 🖥️ Commandes de démonstration et d'exécution
+
+### 1. Configuration de l'environnement
+
+```powershell
+cd C:\Users\pc\rag-support-it
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+```
+
+### 2. Tests unitaires et couverture de code
+
+Exécuter les tests et vérifier la couverture des modules principaux :
+
+```powershell
+python -m pytest -v tests/ --cov=src.generator --cov=src.rag_pipeline --cov=src.retriever --cov-report=term-missing --cov-fail-under=70
+```
+
+### 3. Suivi du pipeline avec DVC
+
+Vérifier l'état des dépendances et des artefacts :
+
+```powershell
+dvc status
+```
+
+Reproduire automatiquement le pipeline lorsque cela est nécessaire :
+
+```powershell
+dvc repro
+```
+
+### 4. Suivi des expériences avec MLflow
+
+Vérifier la version installée :
+
+```powershell
+mlflow --version
+```
+
+Démarrer l'interface de suivi des expériences :
+
+```powershell
+mlflow ui --host 127.0.0.1 --port 5000
+```
+
+Accéder à l'interface :
+
+[http://127.0.0.1:5000](http://127.0.0.1:5000)
+
+### 5. Intégration continue avec GitHub Actions
+
+Vérifier l'état du dépôt :
+
+```powershell
+git status
+git branch
+```
+
+Récupérer les dernières modifications du dépôt distant :
+
+```powershell
+git fetch origin
+```
+
+Synchroniser la branche principale :
+
+```powershell
+git switch main
+git pull --rebase origin main
+```
+
+Déclencher une nouvelle exécution du workflow CI :
+
+```powershell
+git commit --allow-empty -m "chore: verify CI workflow"
+git push origin main
+```
+
+Consulter les résultats des workflows :
+
+[GitHub Actions – RAG Support IT](https://github.com/asmaebihkak24/rag-support-it
 
 
 
